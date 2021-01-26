@@ -344,11 +344,11 @@ export default {
             }
             // 歌词偏移量限制
             const width = deltaX
-            if(width < 0) {
+            if(width < -80) {
                 this.$refs.lyricList.$el.style.left = '0'
                 this.$refs.middleL.style.opacity = `${width / window.innerWidth}`
                 this.currentShow = 'lyric'
-            } else {
+            } else if(width > 80) {
                 this.$refs.lyricList.$el.style.left = '100%'
                 this.$refs.middleL.style.opacity = '1'
                 this.currentShow = 'cd'
