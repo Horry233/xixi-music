@@ -5,7 +5,7 @@
 </template>
 <script>
 import musicList from '../list/musicList'
-import { mapState} from 'vuex'
+// import { mapState} from 'vuex'
 export default {
     components: {
         musicList
@@ -45,9 +45,16 @@ export default {
         }
     },
     computed: {
-        ...mapState({
-            songList: 'songList'
-        }),
+        // ...mapState({
+        //     songList: 'songList'
+        // }),
+        songList: { // 不做成这种形式的会有一个 no setter的bug
+            get: function () {
+                return this.$store.state.songList
+            },
+            set: function () {
+            }
+        },
         title() {
             return this.songList.title
         },
